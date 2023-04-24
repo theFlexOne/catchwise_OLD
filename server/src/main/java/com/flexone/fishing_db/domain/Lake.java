@@ -1,5 +1,6 @@
 package com.flexone.fishing_db.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,11 +25,24 @@ public class Lake {
 
     private String county;
 
+    private String name;
+
     @Column(name = "county_id")
     private Integer countyId;
 
     private String notes;
 
-    @ManyToMany(mappedBy = "lakes", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Fish> fishes = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "fish_lakes",
+            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "fish_id", referencedColumnName = "id"))
+    private List<Fish> fish = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "habitat_lakes",
+            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "habitat_id", referencedColumnName = "id"))
+    private List<Habitat> habitat = new ArrayList<>();
 }
