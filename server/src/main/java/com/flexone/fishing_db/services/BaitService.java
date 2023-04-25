@@ -10,9 +10,9 @@ public interface BaitService {
     Bait findByName(String name);
     List<Bait> findAll();
     List<Bait> findAllByFish(String name);
-    List<Bait> findAllByFish(Long id);
+    List<Bait> findAllByFish(Integer id);
 
     Bait save(Bait bait);
-    void deleteById(long id);
+    void delete(long id);
 
 }

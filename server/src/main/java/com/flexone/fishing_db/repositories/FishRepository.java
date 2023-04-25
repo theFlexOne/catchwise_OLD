@@ -6,14 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface FishRepository extends CrudRepository<Fish, Integer> {
 
-    Fish findByName(String name);
-
-    Fish findById(long id);
-
-    void deleteById(long id);
+    Optional<Fish> findByName(String name);
 
 }

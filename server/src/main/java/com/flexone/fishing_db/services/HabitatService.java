@@ -12,5 +12,5 @@ public interface HabitatService {
     List<Habitat> findAll();
 
     Habitat save(Habitat habitat);
-    void deleteById(long id);
+    void delete(long id);
 }

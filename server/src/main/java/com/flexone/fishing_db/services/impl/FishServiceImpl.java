@@ -3,8 +3,6 @@ package com.flexone.fishing_db.services.impl;
 import com.flexone.fishing_db.domain.Fish;
 import com.flexone.fishing_db.repositories.FishRepository;
 import com.flexone.fishing_db.services.FishService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +18,12 @@ public class FishServiceImpl implements FishService {
 
     @Override
     public Fish findByName(String name) {
-        return fishRepository.findByName(name);
+        return fishRepository.findByName(name).orElse(null);
     }
 
     @Override
-    public Fish findById(long id) {
-        return fishRepository.findById(id);
+    public Fish findById(int id) {
+        return fishRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -39,7 +37,7 @@ public class FishServiceImpl implements FishService {
     }
 
     @Override
-    public void deleteById(long id) {
+    public void deleteById(int id) {
         fishRepository.deleteById(id);
     }
 

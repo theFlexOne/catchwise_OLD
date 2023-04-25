@@ -20,12 +20,12 @@ public class LakeServiceImpl implements LakeService {
 
     @Override
     public Lake findByName(String name) {
-        return lakeRepository.findByName(name);
+        return lakeRepository.findByName(name).orElse(null);
     }
 
     @Override
-    public Lake findById(long id) {
-        return lakeRepository.findById(id);
+    public Lake findById(int id) {
+        return lakeRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class LakeServiceImpl implements LakeService {
     }
 
     @Override
-    public void deleteById(long id) {
+    public void delete(int id) {
         lakeRepository.deleteById(id);
     }
 

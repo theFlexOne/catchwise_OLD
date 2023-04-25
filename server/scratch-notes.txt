@@ -1,8 +1,32 @@
 [
-    "SPINNING RODS",
-    "BAIT-CASTING AND CLOSED-SPIN CASTING RODS",
-    "TELESCOPIC FRESHWATER FISHING RODS",
-    "FIBERGLASS FRESHWATER FISHING RODS",
-    "CARBON-FIBER FRESHWATER FISHING RODS",
-    "ULTRA-LIGHT FRESHWATER FISHING RODS"
+    {
+    "name": ""SPINNING RODS",
+    "classification": "freshwater",
+    "details": ""
+    },
+    {
+    "name": ""BAIT-CASTING AND CLOSED-SPIN CASTING RODS",
+    "classification": "freshwater",
+    "details": ""
+    },
+    {
+    "name": ""TELESCOPIC FRESHWATER FISHING RODS",
+    "classification": "freshwater",
+    "details": ""
+    },
+    {
+    "name": ""FIBERGLASS FRESHWATER FISHING RODS",
+    "classification": "freshwater",
+    "details": ""
+    },
+    {
+    "name": ""CARBON-FIBER FRESHWATER FISHING RODS",
+    "classification": "freshwater",
+    "details": ""
+    },
+    {
+    "name": ""ULTRA-LIGHT FRESHWATER FISHING RODS",
+    "classification": "freshwater",
+    "details": ""
+    },
 ]

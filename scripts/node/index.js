@@ -1,7 +1,17 @@
 import axios from "axios";
 import fs from "fs";
 import scrapeFishBase from "./scripts/scrapeFishBase.js";
+import { fetchFishDataList } from "./scripts/fetchFishData.js";
 
+const rods = JSON.parse(fs.readFileSync("./data/rodData.json", "utf8"));
+
+rods.forEach(rod => rod.name = rod.name.toLowerCase().trim())
+fs.writeFileSync("./data/rodData.json", JSON.stringify(rods, null, 2));
+
+fetchFishDataList().then(data => fs.writeFileSync("./data/fishData.json", JSON.stringify(data, null, 2)));
+
+
+/*
 const urlList = [
   {
     url: "https://www.takemefishing.org/freshwater-fishing/freshwater-fishing-gear/freshwater-tackle/",
@@ -60,5 +70,4 @@ function getFishingBaitList() {
 async function run() {
   scrapeFishBase();
 }
-
-run();
+*/

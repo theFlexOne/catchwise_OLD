@@ -1,0 +1,20 @@
+[
+  {
+    "name": "spinning rods",
+    "classification": "freshwater",
+    "description": "Spinning rods are freshwater fishing rods made from graphite or fiberglass with a cork or PVC foam handle. They typically have five to eight large diameter guides arranged along the underside of the rod to help control the line. Spinning reels hang beneath the rod rather than sitting on top and are held in place with a sliding or locking reel seat. Spinning rods and reels are widely used in fishing for popular North American sport fish including bass, trout, pike and walleye.",
+    "images": [
+      "https://wiki.fishingplanet.com/images/3/35/BassCaster.png",
+      "https://wiki.fishingplanet.com/images/c/ce/JigWinner.png"
+    ]
+  },
+  {
+    "name": "bait-casting and closed-spin casting rods",
+    "classification": "freshwater",
+    "description": "Bait-casting and closed-spin casting rods are freshwater fishing rods designed to hold fishing reels that are mounted above the handle so the line-guide eyes are on the top and the casting trigger is on the bottom. They are made from graphite or fiberglass with a cork or PVC foam handle. They typically have five to eight guide eyes to help control the line. Bait-casting and closed-spin casting rods are best matched with baitcaster reels for best results.",
+    "images": [
+      "https://wiki.fishingplanet.com/images/9/97/FarCaster.png",
+      "https://wiki.fishingplanet.com/images/3/35/BassCaster.png"
+    ]
+  }
+]

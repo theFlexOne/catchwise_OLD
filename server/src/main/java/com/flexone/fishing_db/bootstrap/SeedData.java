@@ -3,9 +3,12 @@ package com.flexone.fishing_db.bootstrap;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flexone.fishing_db.domain.Fish;
+import com.flexone.fishing_db.domain.Image;
 import com.flexone.fishing_db.domain.Lake;
+import com.flexone.fishing_db.domain.Rod;
 import com.flexone.fishing_db.services.FishService;
 import com.flexone.fishing_db.services.LakeService;
+import com.flexone.fishing_db.services.RodService;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -19,12 +22,13 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
     final FishService fishService;
     final LakeService lakeService;
+    final RodService rodService;
 
-    public SeedData(FishService fishService, LakeService lakeService) {
+    public SeedData(FishService fishService, LakeService lakeService, RodService rodService) {
         this.fishService = fishService;
         this.lakeService = lakeService;
+        this.rodService = rodService;
     }
-
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -59,6 +63,27 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                 newLake.setCounty(lake.hasNonNull("county") ? lake.get("county").asText() : "");
                 newLake.setCountyId(lake.hasNonNull("county_id") ? lake.get("county_id").asInt() : 0);
                 lakeService.save(newLake);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileReader fr = new FileReader("src/main/resources/rodData.json");
+            JsonNode rootNode = mapper.readTree(fr);
+            for (JsonNode rod : rootNode) {
+                Rod newRod = new Rod();
+                newRod.setName(rod.hasNonNull("name") ? rod.get("name").asText() : "");
+                newRod.setDescription(rod.hasNonNull("description") ? rod.get("description").asText() : "");
+                List<Image> images = new ArrayList<>();
+                for (JsonNode image : rod.get("images")) {
+                    Image newImage = new Image();
+                    newImage.setUrl(image.hasNonNull("url") ? image.get("url").asText() : "");
+                    images.add(newImage);
+                }
+                newRod.setImages(images);
+                rodService.save(newRod);
             }
 
         } catch (Exception e) {

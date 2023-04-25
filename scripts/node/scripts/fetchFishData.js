@@ -106,9 +106,9 @@ const fetchFishData = async (fishUrl) => {
 const fetchFishDataList = async () => {
   const response = await axios.get(ROOT_URL + "/fish-species");
   const { document } = new JSDOM(response.data).window;
-  const fishUrls = [...document.querySelectorAll(".fish-dl")].map(
-    (fish) => fish.querySelector("a").href
-  );
+  const fishUrls = [
+    ...document.querySelectorAll(".fish-dl[data-filters*='type-of-water-1']"),
+  ].map((fish) => fish.querySelector("a").href);
   const fishData = await Promise.all(
     fishUrls.map((fishUrl) => fetchFishData(fishUrl))
   );
