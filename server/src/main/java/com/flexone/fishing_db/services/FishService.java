@@ -8,14 +8,9 @@ import java.util.List;
 public interface FishService {
 
     Fish findByName(String name);
-
     Fish findById(long id);
+    List<Fish> findAll();
 
     Fish save(Fish fish);
-
-    List<Fish> findAll();
     void deleteById(long id);
-
-
-
 }

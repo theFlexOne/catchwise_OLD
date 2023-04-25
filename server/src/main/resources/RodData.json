@@ -1,0 +1,16 @@
+[
+  {
+    "name": "casting",
+    "classification": "freshwater",
+    "description": "Lorem ipsum",
+    "imageUrl": "https://www.example.com",
+    "targetFish": ["species1", "species2"]
+  },
+  {
+    "name": "spinning",
+    "classification": "freshwater",
+    "description": "Lorem ipsum",
+    "imageUrl": "https://www.example.com",
+    "targetFish": ["species1", "species2"]
+  }
+]

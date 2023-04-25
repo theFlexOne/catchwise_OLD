@@ -1,16 +1,6 @@
 import axios from "axios";
 import fs from "fs";
-
-import fetchLakeDataList from "./fetchLakeData.js";
-import { fetchFishDataList } from "./fetchFishData.js";
-import { scrapeBaitData } from "./scrapeBaitData.js";
-
-// const fishData = fs.readFileSync("fishData.json", "utf8");
-// fishData.data.forEach((fish) => {
-//   const habitats = fish.geography.habitat.split(", ");
-//   fish.geography.habitat = habitats;
-// });
-// fs.writeFileSync("fishData.json", JSON.stringify(fishData, null, 2));
+import scrapeFishBase from "./scripts/scrapeFishBase.js";
 
 const urlList = [
   {
@@ -67,19 +57,8 @@ function getFishingBaitList() {
   return [...baitList].sort();
 }
 
-function runOld() {
-  const baitList = getFishingBaitList();
-  console.log(baitList);
-  fs.writeFileSync("./baitData.json", JSON.stringify(baitList, null, 2));
-}
-
 async function run() {
-  const fetchList = urlList.map(({ url }) => axios.get(url));
-  const responses = await Promise.all(fetchList);
-  const htmlList = responses.map(({ data }) => data);
-  htmlList.forEach((html, index) => {
-    fs.writeFileSync(`./html/${urlList[index].filename}.html`, html);
-  });
+  scrapeFishBase();
 }
 
 run();
