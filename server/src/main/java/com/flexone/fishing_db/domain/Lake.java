@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -33,16 +34,16 @@ public class Lake {
     private String notes;
 
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "fish_lakes",
-            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "fish_id", referencedColumnName = "id"))
-    private List<Fish> fish = new ArrayList<>();
+            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id", nullable = false, updatable = false),
+            inverseJoinColumns = @JoinColumn(name = "fish_id", referencedColumnName = "id", nullable = false, updatable = false))
+    private Set<Fish> fish = new HashSet<>();
 
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "habitat_lakes",
-            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "habitat_id", referencedColumnName = "id"))
-    private List<Habitat> habitat = new ArrayList<>();
+            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id", nullable = false, updatable = false),
+            inverseJoinColumns = @JoinColumn(name = "habitat_id", referencedColumnName = "id", nullable = false, updatable = false))
+    private Set<Habitat> habitat = new HashSet<>();
 }

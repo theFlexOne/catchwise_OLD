@@ -37,6 +37,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
     private void initData() {
         ObjectMapper mapper = new ObjectMapper();
+
         try {
             FileReader fr = new FileReader("src/main/resources/fishData.json");
             JsonNode rootNode = mapper.readTree(fr);
@@ -45,6 +46,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                 newFish.setName(fish.get("name").asText());
                 newFish.setDescription(fish.get("description").asText());
                 newFish.setImageUrl(fish.get("imageUrl").asText());
+                newFish.setIdentification(fish.hasNonNull("identification") ? fish.get("identification").asText() : "");
                 fishService.save(newFish);
             }
 
