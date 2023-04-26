@@ -8,8 +8,11 @@ public interface LakeService {
 
     Lake findByName(String name);
     Lake findById(int id);
+    Lake findByLakeId(Long lakeId);
 
     Lake save(Lake lake);
+
+    List<Lake> saveAll(List<Lake> lakes);
 
     void delete(int id);
 

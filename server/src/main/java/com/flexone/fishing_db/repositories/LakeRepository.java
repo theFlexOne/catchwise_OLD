@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface LakeRepository extends CrudRepository<Lake, Integer> {
 
+    Optional<Lake> findByLakeId(Long lakeId);
     Optional<Lake> findByName(String name);
 }

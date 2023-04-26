@@ -17,6 +17,16 @@ public class FishServiceImpl implements FishService {
     }
 
     @Override
+    public Fish save(Fish fish) {
+        return fishRepository.save(fish);
+    }
+
+    @Override
+    public List<Fish> saveAll(List<Fish> fish) {
+        return (List<Fish>) fishRepository.saveAll(fish);
+    }
+
+    @Override
     public Fish findByName(String name) {
         return fishRepository.findByName(name).orElse(null);
     }
@@ -24,11 +34,6 @@ public class FishServiceImpl implements FishService {
     @Override
     public Fish findById(int id) {
         return fishRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public Fish save(Fish fish) {
-        return fishRepository.save(fish);
     }
 
     @Override

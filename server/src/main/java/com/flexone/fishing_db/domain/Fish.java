@@ -34,21 +34,19 @@ public class Fish {
     @Column(columnDefinition = "TEXT")
     private String identification;
 
-    @ManyToMany(mappedBy = "fish", fetch = FetchType.EAGER,  cascade = CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "fish", fetch = FetchType.EAGER)
     private Set<Lake> lakes = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "fish_bait",
-            joinColumns = @JoinColumn(name = "fish_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "bait_id", referencedColumnName = "id"))
-    private List<Bait> bait = new ArrayList<>();
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "fish_bait",
+            joinColumns = @JoinColumn(name = "fish_id"),
+            inverseJoinColumns = @JoinColumn(name = "bait_id")
+    )
+    private Set<Bait> baitList = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "fish_habitat",
-            joinColumns = @JoinColumn(name = "fish_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "habitat_id", referencedColumnName = "id"))
-    private List<Habitat> habitat = new ArrayList<>();
 
+    // region -> createdAt & modifiedAt
     @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date createdAt;
 
@@ -64,6 +62,11 @@ public class Fish {
     protected void onUpdate() {
         modifiedAt = new java.util.Date();
     }
+    // endregion
 
+    public Fish assignToLake(Lake lake) {
+        this.lakes.add(lake);
+        return this;
+    }
 
 }

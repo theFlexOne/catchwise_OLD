@@ -29,8 +29,18 @@ public class LakeServiceImpl implements LakeService {
     }
 
     @Override
+    public Lake findByLakeId(Long lakeId) {
+        return lakeRepository.findByLakeId(lakeId).orElse(null);
+    }
+
+    @Override
     public Lake save(Lake lake) {
         return lakeRepository.save(lake);
+    }
+
+    @Override
+    public List<Lake> saveAll(List<Lake> lakes) {
+        return (List<Lake>) lakeRepository.saveAll(lakes);
     }
 
     @Override

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Component
 public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
@@ -88,6 +89,28 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                 rodService.save(newRod);
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileReader fr = new FileReader("src/main/resources/lakeData.json");
+            JsonNode rootNode = mapper.readTree(fr);
+            List<Fish> fishList = fishService.findAll();
+            for (Fish fish : fishList) {
+                String name = fish.getName().toLowerCase();
+                for (JsonNode lake : rootNode) {
+                    if (lake.hasNonNull("fishSpecies")) {
+                        for (JsonNode fishNode : lake.get("fishSpecies")) {
+                            if (fishNode.asText().toLowerCase().contains(name)) {
+                                Lake newLake = lakeService.findByLakeId(lake.get("id").asLong());
+                                newLake.addFish(fish);
+                                lakeService.save(newLake);
+                            }
+                        }
+                    }
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

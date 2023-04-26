@@ -33,17 +33,35 @@ public class Lake {
 
     private String notes;
 
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "fish_lakes",
-            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id", nullable = false, updatable = false),
-            inverseJoinColumns = @JoinColumn(name = "fish_id", referencedColumnName = "id", nullable = false, updatable = false))
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "lake_fish",
+            joinColumns = @JoinColumn(name = "lake_id"),
+            inverseJoinColumns = @JoinColumn(name = "fish_id")
+    )
     private Set<Fish> fish = new HashSet<>();
 
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "habitat_lakes",
-            joinColumns = @JoinColumn(name = "lake_id", referencedColumnName = "id", nullable = false, updatable = false),
-            inverseJoinColumns = @JoinColumn(name = "habitat_id", referencedColumnName = "id", nullable = false, updatable = false))
-    private Set<Habitat> habitat = new HashSet<>();
+    // region -> createdAt & modifiedAt
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date createdAt;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date modifiedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new java.util.Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        modifiedAt = new java.util.Date();
+    }
+    // endregion
+
+    public Lake addFish(Fish fish) {
+        this.fish.add(fish);
+        return this;
+    }
+
 }

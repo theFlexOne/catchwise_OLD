@@ -25,11 +25,11 @@ public class Habitat {
 
     private String type;
     private String location;
-
-    @ManyToMany(mappedBy = "habitat")
-    private List<Fish> fish;
-
-    @ManyToMany(mappedBy = "habitat")
-    private List<Lake> lakes;
+//
+//    @ManyToMany(mappedBy = "habitat")
+//    private List<Fish> fish;
+//
+//    @ManyToMany(mappedBy = "habitat")
+//    private List<Lake> lakes;
 
 }

@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -27,7 +29,7 @@ public class Bait {
 
     private String imageUrl;
 
-    @ManyToMany(mappedBy = "bait")
-    private List<Fish> fish;
+    @ManyToMany(mappedBy = "baitList", fetch = FetchType.EAGER)
+    private Set<Fish> fish = new HashSet<>();
 
 }
