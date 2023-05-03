@@ -18,6 +18,11 @@ public class FishServiceImpl implements FishService {
 
 
     @Override
+    public Optional<Fish> getFishById(Long id) {
+        return fishRepository.findById(id);
+    }
+
+    @Override
     public List<Fish> getAllFish() {
         return (List<Fish>) fishRepository.findAll();
     }

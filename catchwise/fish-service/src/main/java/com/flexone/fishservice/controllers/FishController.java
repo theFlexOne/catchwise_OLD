@@ -25,6 +25,17 @@ public class FishController {
         return fishService.getAllFish();
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Fish getFishById(@PathVariable Long id) {
+        Optional<Fish> fish = fishService.getFishById(id);
+        if (fish.isPresent()) {
+            return fish.get();
+        } else {
+            throw new NoSuchElementException("Fish not found");
+        }
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Fish createFish(@RequestBody FishRequest fishRequest) {

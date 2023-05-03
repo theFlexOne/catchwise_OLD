@@ -9,4 +9,5 @@ public interface LakeService {
     List<Lake> getAllLakes();
 
     Lake createLake(Lake lake);
+    Lake addFishToLake(Long lakeId, Long fishId);
 }

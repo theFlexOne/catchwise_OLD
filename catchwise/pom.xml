@@ -11,13 +11,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.flexone</groupId>
+    <groupId>com.flexone</groupId>
     <artifactId>catchwise</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>fish-service</module>
         <module>lake-service</module>
+        <module>discovery-server</module>
     </modules>
 
     <properties>
@@ -32,6 +33,13 @@
                 <groupId>org.testcontainers</groupId>
                 <artifactId>testcontainers-bom</artifactId>
                 <version>1.16.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2021.0.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

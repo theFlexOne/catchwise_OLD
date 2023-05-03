@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface FishService {
 
+    Optional<Fish> getFishById(Long id);
     List<Fish> getAllFish();
 
     Fish addFish(FishRequest fishRequest);
