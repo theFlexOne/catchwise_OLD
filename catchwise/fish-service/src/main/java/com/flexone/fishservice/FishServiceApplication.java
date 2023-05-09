@@ -1,4 +1,4 @@
-package com.flexone.fishservice;
+package main.java.com.flexone.fishservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

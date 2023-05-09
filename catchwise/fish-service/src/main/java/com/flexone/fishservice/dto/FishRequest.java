@@ -1,4 +1,4 @@
-package com.flexone.fishservice.dto;
+package main.java.com.flexone.fishservice.dto;
 
 
 import lombok.AllArgsConstructor;

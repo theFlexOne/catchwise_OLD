@@ -1,6 +1,6 @@
 package com.flexone.lakeservice.controllers;
 
-import com.flexone.lakeservice.Services.LakeService;
+import com.flexone.lakeservice.services.LakeService;
 import com.flexone.lakeservice.domain.Lake;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.flexone.fishservice.services;
+package main.java.com.flexone.fishservice.services;
 
 import com.flexone.fishservice.domain.Fish;
 import com.flexone.fishservice.dto.FishRequest;

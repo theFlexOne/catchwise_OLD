@@ -1,9 +1,9 @@
-package com.flexone.fishservice.services.impl;
+package main.java.com.flexone.fishservice.services.impl;
 
 import com.flexone.fishservice.domain.Fish;
 import com.flexone.fishservice.dto.FishRequest;
-import com.flexone.fishservice.repositories.FishRepository;
-import com.flexone.fishservice.services.FishService;
+import main.java.com.flexone.fishservice.repositories.FishRepository;
+import main.java.com.flexone.fishservice.services.FishService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

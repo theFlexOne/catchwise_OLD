@@ -1,4 +1,4 @@
-package com.flexone.fishservice.domain;
+package main.java.com.flexone.fishservice.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package com.flexone.lakeservice.Services.impl;
+package com.flexone.lakeservice.services.impl;
 
-import com.flexone.lakeservice.Services.LakeService;
+import com.flexone.lakeservice.services.LakeService;
 import com.flexone.lakeservice.domain.Lake;
 import com.flexone.lakeservice.repositories.LakeRepository;
 import lombok.RequiredArgsConstructor;

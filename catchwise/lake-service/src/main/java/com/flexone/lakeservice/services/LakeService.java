@@ -1,4 +1,4 @@
-package com.flexone.lakeservice.Services;
+package com.flexone.lakeservice.services;
 
 import com.flexone.lakeservice.domain.Lake;
 
