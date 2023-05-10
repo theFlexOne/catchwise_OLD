@@ -7,11 +7,25 @@ const url = new URL(
   "https://www.fishbase.se/country/CountryChecklist.php?showAll=yes&what=list&trpp=50&c_code=840&cpresence=present&sortby=alpha2&ext_CL=on&vhabitat=all2"
 );
 
+
+
 const fetchFishTableHtml = async () => {
   const { data } = await axios.get(url.href);
   const dom = new JSDOM(data);
   const table = dom.window.document.querySelector("table.commonTable");
   return table.outerHTML;
+};
+const getFishLinks = () => {
+  const html = fs.readFileSync("./html/fishBase.html", "utf8");
+  const dom = new JSDOM(html);
+  const rows = [
+    ...dom.window.document.querySelectorAll("table.commonTable tbody tr"),
+  ];
+  const links = rows.map((row) => {
+    const link = row.querySelector("td a");
+    return link.href;
+  });
+  return links;
 };
 
 const htmlToJson = () => {
@@ -41,7 +55,7 @@ const htmlToJson = () => {
   fs.writeFileSync("data/fishBaseFishList.json", JSON.stringify(data, null, 2));
 };
 
-export default () => {
+const parseFishBaseHTMLFile = () => {
   const fishes = JSON.parse(
     fs.readFileSync("./data/fishBaseFishList.json", "utf8")
   );
@@ -62,3 +76,10 @@ export default () => {
   const abundanceTypesArray = [...abundanceTypes].sort();
   console.log(abundanceTypesArray);
 };
+
+const init = () => {
+  const fishLinks = getFishLinks();
+  fs.writeFileSync("data/fishBaseFishLinks.json", JSON.stringify(fishLinks));
+};
+
+export default init;

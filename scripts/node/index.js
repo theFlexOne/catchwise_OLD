@@ -1,73 +1,86 @@
-import axios from "axios";
 import fs from "fs";
 import scrapeFishBase from "./scripts/scrapeFishBase.js";
-import { fetchFishDataList } from "./scripts/fetchFishData.js";
 
-const rods = JSON.parse(fs.readFileSync("./data/rodData.json", "utf8"));
+const fishBaseListOLD = JSON.parse(
+  fs.readFileSync("./data/fishBaseFishListOLD.json", "utf8")
+);
+const fishBaseList = JSON.parse(
+  fs.readFileSync("./data/fishBaseFishList.json", "utf8")
+);
+const masterFishList = JSON.parse(
+  fs.readFileSync("./data/fishData.json", "utf8")
+);
+const newFishData = JSON.parse(
+  fs.readFileSync("./data/fishDataNew.json", "utf8")
+);
 
-rods.forEach(rod => rod.name = rod.name.toLowerCase().trim())
-fs.writeFileSync("./data/rodData.json", JSON.stringify(rods, null, 2));
+const filteredNewFishData = newFishData.filter((fish, i) => {
+  if (!fish.commonNames) {
+    console.log("fish", i, fish.name);
+  }
+  return fish.commonNames;
+});
 
-fetchFishDataList().then(data => fs.writeFileSync("./data/fishData.json", JSON.stringify(data, null, 2)));
-
-
-/*
-const urlList = [
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/freshwater-fishing-gear/freshwater-tackle/",
-    filename: "freshwater-tackle",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/freshwater-fishing-gear/rods/",
-    filename: "freshwater-rods",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/types-of-freshwater-fishing/lakes-and-ponds/",
-    filename: "freshwater-lakes-and-ponds",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/types-of-freshwater-fishing/river-fishing/",
-    filename: "freshwater-river-fishing",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/types-of-freshwater-fishing/lake-fishing/",
-    filename: "freshwater-lake-fishing",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/types-of-freshwater-fishing/pond-fishing/",
-    filename: "freshwater-pond-fishing",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/types-of-freshwater-fishing/reservoirs-and-flowages/",
-    filename: "freshwater-reservoirs-and-flowages",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/when-to-freshwater-fish/best-time-to-fish-trout/",
-    filename: "freshwater-best-time-to-fish-trout",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/when-to-freshwater-fish/best-time-to-fish-for-bass/",
-    filename: "freshwater-best-time-to-fish-for-bass",
-  },
-  {
-    url: "https://www.takemefishing.org/freshwater-fishing/when-to-freshwater-fish/best-time-to-freshwater-fish/",
-    filename: "freshwater-best-time-to-freshwater-fish",
-  },
-];
-const filepath = "freshwater-bait.html";
-
-function getFishingBaitList() {
-  const baitList = new Set();
-  const fishes = JSON.parse(fs.readFileSync("./fishData.json", "utf8"));
-  fishes.forEach((fish) => {
-    fish.bait.items.forEach((bait) => {
-      baitList.add(bait.name);
+function buildNewFishDataJSON(masterFishList, fishBaseList) {
+  const newFishData = masterFishList.map((fish) => {
+    const fishBaseFish = fishBaseList.find((fishBaseFish) => {
+      return fishBaseFish.commonNames.includes(fish.name.toLowerCase());
     });
+    if (fishBaseFish) {
+      return {
+        ...fish,
+        ...fishBaseFish,
+      };
+    } else {
+      return fish;
+    }
   });
-  return [...baitList].sort();
+
+  fs.writeFileSync(
+    "./data/fishDataNew.json",
+    JSON.stringify(newFishData, null, 2)
+  );
 }
 
-async function run() {
-  scrapeFishBase();
+function formatFishBaseFishData(fishBaseList) {
+  fishBaseList.forEach((fishBaseFish) => {
+    let { commonNames, species: speciesAndGenus, family } = fishBaseFish;
+
+    commonNames = commonNames
+      .replaceAll(/ \(\w*\)/g, "")
+      .trim()
+      .toLowerCase();
+    const commonNameList = commonNames.split(", ");
+    fishBaseFish.commonNames = commonNameList;
+
+    const [genus, species] = speciesAndGenus.toLowerCase().trim().split(" ");
+    fishBaseFish.genus = genus;
+    fishBaseFish.species = species;
+
+    fishBaseFish.family = family.toLowerCase();
+
+    delete fishBaseFish.commonName;
+    delete fishBaseFish.info;
+    delete fishBaseFish.abundance;
+    delete fishBaseFish.maxLength;
+    delete fishBaseFish.maturity;
+  });
+
+  fs.writeFileSync(
+    "./data/fishBaseFishList.json",
+    JSON.stringify(fishBaseList, null, 2)
+  );
 }
-*/
+
+function sortFishBaseIds() {
+  const fishBaseIds = JSON.parse(
+    fs.readFileSync("./data/fishBaseFishLinks.json", "utf8")
+  );
+  const sortedFishBaseIds = fishBaseIds.sort((a, b) => a - b);
+  fs.writeFileSync(
+    "./data/fishBaseFishLinks.json",
+    JSON.stringify(sortedFishBaseIds)
+  );
+}
+
+sortFishBaseIds();
