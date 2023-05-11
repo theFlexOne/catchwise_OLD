@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a6f6ac35-6f4f-41d9-8420-cbf67153fc5c" name="Changes" comment="Working on discovery-server">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/java/com/flexone/discoveryserver/DiscoveryServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fish-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fish-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lake-service/src/main/java/com/flexone/lakeservice/Services/LakeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lake-service/src/main/java/com/flexone/lakeservice/services/LakeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lake-service/src/main/java/com/flexone/lakeservice/Services/impl/LakeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lake-service/src/main/java/com/flexone/lakeservice/services/impl/LakeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lake-service/src/main/java/com/flexone/lakeservice/controllers/LakeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lake-service/src/main/java/com/flexone/lakeservice/controllers/LakeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lake-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lake-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2PFtmykEjJCbSHXLPwXhxQVXiqs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "v2",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/Eric.Hafvenstein/code/spring-boot-microservices/discovery-server",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.09363294",
+    "project.structure.side.proportion": "0.10193682",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Eric.Hafvenstein\code\flexone\catchwise\catchwise\lake-service" />
+      <recent name="C:\Users\Eric.Hafvenstein\code\flexone\catchwise\catchwise\fish-service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Eric.Hafvenstein\code\flexone\catchwise\catchwise" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.com.programming.techie.discoveryserver.DiscoveryServerApplication">
+    <configuration name="DiscoveryServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.flexone.discoveryserver.DiscoveryServerApplication" />
+      <module name="discovery-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.flexone.discoveryserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RUN DISCOVERY SERVER" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.flexone.discoveryserver.DiscoveryServerApplication" />
+      <module name="discovery-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flexone.discoveryserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RUN FISH SERVICE" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.flexone.fishservice.FishServiceApplication" />
+      <module name="fish-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flexone.fishservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RUN LAKE SERVICE" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.flexone.lakeservice.LakeServiceApplication" />
+      <module name="lake-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flexone.lakeservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.programming.techie.discoveryserver.DiscoveryServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.programming.techie.discoveryserver.DiscoveryServerApplication" />
+      <module name="discovery-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.programming.techie.discoveryserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.RUN LAKE SERVICE" />
+      <item itemvalue="Application.com.programming.techie.discoveryserver.DiscoveryServerApplication" />
+      <item itemvalue="Application.RUN DISCOVERY SERVER" />
+      <item itemvalue="Application.DiscoveryServerApplication" />
+      <item itemvalue="Application.RUN FISH SERVICE" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.com.programming.techie.discoveryserver.DiscoveryServerApplication" />
+        <item itemvalue="Application.RUN FISH SERVICE" />
+        <item itemvalue="Application.RUN DISCOVERY SERVER" />
+        <item itemvalue="Application.DiscoveryServerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a6f6ac35-6f4f-41d9-8420-cbf67153fc5c" name="Changes" comment="" />
+      <created>1683064821985</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683064821985</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Working on discovery-server">
+      <created>1683138456077</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683138456077</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Working on discovery-server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on discovery-server" />
+  </component>
+</project>
