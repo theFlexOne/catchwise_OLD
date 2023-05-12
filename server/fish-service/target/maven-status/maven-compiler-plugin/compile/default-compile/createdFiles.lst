@@ -1,0 +1,9 @@
+com\flexone\fishservice\dto\FishRequest.class
+com\flexone\fishservice\domain\Fish$FishBuilder.class
+com\flexone\fishservice\FishServiceApplication.class
+com\flexone\fishservice\domain\Fish.class
+com\flexone\fishservice\repositories\FishRepository.class
+com\flexone\fishservice\dto\FishRequest$FishRequestBuilder.class
+com\flexone\fishservice\services\FishService.class
+com\flexone\fishservice\services\impl\FishServiceImpl.class
+com\flexone\fishservice\controllers\FishController.class

@@ -11,6 +11,7 @@
         <module name="api-gateway" />
         <module name="discovery-server" />
         <module name="lake-service" />
+        <module name="notification-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,6 +28,7 @@
       <module name="fish-service" options="-parameters" />
       <module name="inventory-service" options="-parameters" />
       <module name="lake-service" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
     </option>
